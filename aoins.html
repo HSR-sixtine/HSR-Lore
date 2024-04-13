@@ -1,1 +1,152 @@
-aoins
+<!DOCTYPE html>
+<html lang="en" data-color-scheme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexique</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .label a {
+	display: block;
+	text-decoration: none;
+}
+.label.activeClass,
+.sublabel.activeClass {
+	color: gray!important;
+}
+.mainContent {
+	position:relative;
+	overflow: hidden;
+}
+.contentContainer,
+.content {
+	display: none;
+}
+.contentContainer.activeClass,
+.content.activeClass {
+	display: block;
+}
+
+.contentContainer {
+	position: relative;
+}
+.content {
+	position:relative;
+}
+    </style>
+</head>
+<body>
+
+    <div id="container" class="Aoins">
+    <div class="containerBG"></div>
+    <div class="vector Vleft"></div>
+    <div class="vector Vright"></div>
+    <div id="navbarContainer"></div>
+    <div class="contenu">
+      <div class="label">
+        a title i guess
+        <a class="sublabel" id="subtab-1-1" href="#sec1-sub1">STARTING UP</a>
+        <a class="sublabel" id="subtab-1-2" href="#sec1-sub2">GUIDELINES</a>
+        <a class="sublabel" id="subtab-1-3" href="#sec1-sub3">GLOSSARY</a>
+        </div>
+        
+        <div class="label">
+        another title here
+        <a class="sublabel" id="subtab-2-1" href="#sec2-sub1">PREMISE + SETTING</a>
+        <a class="sublabel" id="subtab-2-2" href="#sec2-sub2">IMPORTANT FIGURES</a>
+        <a class="sublabel" id="subtab-2-3" href="#sec2-sub3">TIMELINES</a>
+        </div>
+        
+        <div class="mainContent">
+        
+        
+        
+        <div class="contentContainer">
+        
+        <div class="content" id="subtab-1-1-content">section one, tab one</div>
+        
+        <div class="content" id="subtab-1-2-content">section one, tab two</div>
+        
+        <div class="content" id="subtab-1-3-content">section one, tab three</div>
+        
+        </div>
+        
+        
+        
+        <div class="contentContainer">
+        
+        <div class="content" id="subtab-2-1-content">section two, tab one</div>
+        
+        <div class="content" id="subtab-2-2-content">section two, tab two</div>
+        
+        <div class="content" id="subtab-2-3-content">section two, tab three</div>
+        
+        </div>
+        
+        
+        
+        </div>
+    </div>
+
+    
+    </div>
+
+    <script src="scripts/navbar.js"></script>
+    <script src="scripts/switch-theme.js"></script>
+    <script>
+      //on click, do a thing
+$('.sublabel').on('click', function() {
+	//assign variables for easy calling - the label clicked and its corresponding content area
+	var labelID = '#' + this.id;
+	var contentID = labelID + '-content';
+
+	//remove the active class from all labels, sublabels, content containers, and contents
+	$('.label').removeClass('activeClass');
+	$('.sublabel').removeClass('activeClass');
+	$('.contentContainer').removeClass('activeClass');
+	$('.content').removeClass('activeClass');
+
+	//add the class back to the appropriate label, sublabel, container, and content
+	$(labelID).addClass('activeClass');
+	$(labelID).parent().parent().addClass('activeClass');
+	$(contentID).addClass('activeClass');
+	$(contentID).parent().addClass('activeClass');
+});
+
+//this is so you can link to tabs!
+if (window.location.hash){
+	//find the hashtag at the end of the url, if there is one
+	var hash = $.trim( window.location.hash );
+	//if there is, assign related variables
+	if (hash) $('.label a[href$="' + hash + '"].sublabel').trigger('click');
+	var hashSelect = $('.label a[href$="' + hash + '"].sublabel');
+	var hashTab = '#' + $(hashSelect).attr('id') + '-content';
+
+	//remove active class from all labels etc again
+	$('.label').removeClass('activeClass');
+	$('.sublabel').removeClass('activeClass');
+	$('.contentContainer').removeClass('activeClass');
+	$('.content').removeClass('activeClass');
+
+	//add the active class to the right labels etc
+	$(hashSelect).addClass('activeClass');
+	$(hashSelect).parent().parent().addClass('activeClass');
+	$(hashTab).addClass('activeClass');
+	$(hashTab).parent().addClass('activeClass');
+} else {
+	//if there is no hashtag, default to the first sublabel of the first section
+	$('.label').first().addClass('activeClass');
+	$('.label .sublabel').first().addClass('activeClass');
+	$('.contentContainer').first().addClass('activeClass');
+	$('.content').first().addClass('activeClass');
+}
+    </script>
+</body>
+</html>
+
+
+
+    
