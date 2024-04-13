@@ -106,9 +106,6 @@ IMAGE BACKGROUND
     position: absolute;
     top: 0;
     left: 0;
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: cover;
     height: 100%;
 }
 
@@ -123,7 +120,12 @@ IMAGE BACKGROUND
     content: "";
 }
 
-.containerBG::before {filter: grayscale(100%) saturate(1000%) opacity(40%) contrast(180%);}
+.containerBG::before {
+    filter: grayscale(100%) saturate(1000%) opacity(40%) contrast(180%);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+}
 .containerBG:after {background: linear-gradient(90deg, rgba(28, 28, 31, 0.00) 0%, var(--primary) 100%);}
 
 /*taille en fonction de la page*/
