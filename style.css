@@ -40,7 +40,7 @@
     --blue: #2DFDF6;
 
     /*image*/
-    --background:url('/img/background.png');
+    --background:url('img/background.png');
 
     /*filtre image*/
     --svgColor:brightness(0) invert(1);
@@ -61,7 +61,7 @@
     --blue: #8383C0;
 
     /*image*/
-    --background:url('/img/background01.png');
+    --background:url('img/background01.png');
 
     /*filtre image*/
     --svgColor:brightness(0) invert(0);
