@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-color-scheme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexique</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="container" class="Lexique">
+    <div class="containerBG"></div>
+    <div class="vector Vleft"></div>
+    <div class="vector Vright"></div>
+    <div id="navbarContainer"></div>
+    <div class="contenu">
+        <div id="lexique-list"></div>
+    </div>
+
+    
+    </div>
+
+    <script src="scripts/navbar.js"></script>
+    <script src="scripts/switch-theme.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  fetch("json/lexique.json")
+    .then(response => response.json())
+    .then(data => {
+      const lexique = data.lexique;
+      lexique.sort((a, b) => a.mot.localeCompare(b.mot)); // Trie par ordre alphabétique
+
+      const lexiqueList = document.getElementById("lexique-list");
+      let currentLetter = null;
+
+      lexique.forEach(item => {
+        const firstLetter = item.mot.charAt(0).toUpperCase();
+        if (firstLetter !== currentLetter) {
+          currentLetter = firstLetter;
+          const letterHeader = document.createElement("h2");
+          letterHeader.textContent = currentLetter;
+          lexiqueList.appendChild(letterHeader);
+        }
+        
+        const div = document.createElement("div");
+        div.classList.add("mot-lexique");
+
+        const h3 = document.createElement("h3");
+        h3.textContent = item.mot;
+
+        const description = document.createTextNode(item.description);
+
+        div.appendChild(h3);
+        div.appendChild(description);
+        lexiqueList.appendChild(div);
+      });
+    })
+    .catch(error => console.error("Erreur lors du chargement du lexique :", error));
+});
+
+    </script>
+</body>
+</html>
+
+
+
+    
