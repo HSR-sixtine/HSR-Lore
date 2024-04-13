@@ -1,23 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-color-scheme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css.css">
-    <style>
-        .blocrouge {
-            background:red;
-        }
-    </style>
+    <title>Accueil</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="blocrouge">bonjour !</div>
 
-<object type="text/html" data="aoins/aha.html" width="100%" height="500px"></object>
+    <div id="container" class="Accueil">
+    <div class="containerBG"></div>
+    <div class="vector Vleft"></div>
+    <div class="vector Vright"></div>
+    {% include navbar.html %}
+    <div class="contenu">
+        <h1>Honkai<br/>Star Rail</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sapiente fuga vitae beatae fugit ut amet esse at, veniam architecto voluptatum iste excepturi cum delectus eligendi hic in eos nemo exercitationem unde necessitatibus. Harum veniam odit placeat ratione <u>corporis laboriosam fugit?</u> Laudantium voluptatem esse reprehenderit illum odit ut reiciendis, eligendi iste qui eveniet autem soluta non quibusdam eos ea dignissimos eum distinctio quo! Veritatis nesciunt vel omnis <b>temporibus</b>. Ut quam amet, eaque cum, tempore laboriosam iste possimus quo suscipit voluptatibus assumenda ex nostrum aspernatur deserunt at? Perferendis officiis doloribus maxime, molestiae aliquam nobis, consectetur error architecto, odit impedit beatae consequuntur!
+            </p>
+
+    </div>
 
     
-{% include aoins/aha.html %}
-    <h1>testtttt</h1>
+    </div>
+
+    <script src="scripts/navbar.js"></script>
+    <script src="scripts/switch-theme.js"></script>
 </body>
 </html>
+
