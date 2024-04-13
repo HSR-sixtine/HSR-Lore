@@ -114,6 +114,8 @@ IMAGE BACKGROUND
 
 .containerBG::before,.containerBG:after {
     position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
     top: 0;
     left: 0;
     width: 100%;
